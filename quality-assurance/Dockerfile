@@ -1,8 +1,10 @@
 FROM tomcat:9
+
+MAINTAINER Devil
 					 
 RUN rm -rf /usr/local/tomcat/webapps/*
 		 
-COPY target/bikes-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps/ROOT.war
+COPY warstorage/bikes-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps/ROOT.war
 		 
 EXPOSE 8080
 			 
