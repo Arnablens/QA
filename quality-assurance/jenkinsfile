@@ -31,6 +31,13 @@ node {
    stage('Docker-Stage-Deployment') {
    sh label: '', script: 'docker-compose up -d --build'
   }
+  stage('Docker image push to dockerhub'){
+   script {
+   docker.withRegistry( '', 'docker') {
+      sh 'docker push arnablens/bikes:$BUILD_NUMBER'
+    }
+   }
+  }
   
   stage ('Deploy approval'){
 	input "Deploy to production ?"
