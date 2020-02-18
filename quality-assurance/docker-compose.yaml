@@ -2,6 +2,7 @@ version: '2'
 
 services:
   qa:
+  image: arnablens/bikes:$BUILD_NUMBER
     build: . 
     ports:
       - '30080:8080'
